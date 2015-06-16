@@ -1,5 +1,5 @@
 ## weigery
-
+[![Circle CI](https://circleci.com/gh/taniyu/weigery.svg?style=shield)](https://circleci.com/gh/taniyu/weigery)
 ## deploy
 
 デプロイサーバのrailsアカウントに対してデプロイを行います．

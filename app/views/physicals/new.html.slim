@@ -1,7 +1,7 @@
-huk-grid
+.uk-grid
   fieldest
     form.uk-form
-      = form_for @physical, html: { class: 'uk-form-row' } do |f|
+      = form_for [@user, @user.physical.new], html: { class: 'uk-form-row' } do |f|
         legend
           | 本日の身体情報を入力
           = f.text_field :height, placeholder: '身長'

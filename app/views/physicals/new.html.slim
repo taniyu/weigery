@@ -1,0 +1,14 @@
+.uk-grid
+  fieldest
+    form.uk-form
+      = form_fot [@user, @user.articles.build] do |f|
+        legend
+          | 本日の身体情報を入力
+          = f.text_field :height, class: 'uk-form-row', placeholder: '身長'
+          = f.text_field :weight, class: 'uk-form-row', placeholder: '体重'
+          = f.text_field :sbp   , class: 'uk-form-row', placeholder: '血圧(高)'
+          = f.text_field :dbp   , class: 'uk-form-row', placeholder: '血圧(低)'
+          = f.text_field :pulse , class: 'uk-form-row', placeholder: '脈拍'
+
+
+ 

@@ -11,5 +11,8 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require font-awesome
+ *= require uikit
+ *= require uikit/almost-flat
  *= require_self
  */

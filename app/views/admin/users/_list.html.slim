@@ -5,13 +5,13 @@
         th style="width: 150px;"
           = link_to new_admin_user_path, class: 'uk-button uk-button-mini uk-button-primary', remote: true do
             = fa_icon 'plus', text: '作成'
-        th.bold style="width: 150px;" メールアドレス
-        th.bold style="width: 150px;" 名前
-        th.bold style="width: 100px;" 年齢
-        th.bold style="width: 50px;" 性別
-        th.bold style="width: 50px;" 管理者
-        th.bold 登録データ数
-        th.bold style="width: 150px;" 最終ログイン時間
+        th.bold style="width: 150px;" = sort_link(@search, :email, 'メールアドレス')
+        th.bold style="width: 150px;" = sort_link(@search, :name, '名前')
+        th.bold style="width: 100px;" = sort_link(@search, :age, '年齢')
+        th.bold style="width: 50px;" = sort_link(@search, :sex, '性別')
+        th.bold style="width: 50px;" = sort_link(@search, :role, '管理者')
+        th.bold style="width: 100px;" = sort_link(@search, :physicals, '登録データ数')
+        th.bold style="width: 150px;" = sort_link(@search, :last_sign_in_at, '最終ログイン時間')
     tbody
       - users.each do |user|
         - user = user.decorate

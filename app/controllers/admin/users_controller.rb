@@ -4,7 +4,8 @@ class Admin::UsersController < ApplicationController
   before_action :load_user, except: [:index, :new, :create]
 
   def index
-    @users = User.order(updated_at: :desc).page(params[:page]).per(20)
+    @search = User.search(params[:q])
+    @users = @search.result.page(params[:page]).per(20)
   end
 
   def edit

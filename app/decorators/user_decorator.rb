@@ -7,8 +7,8 @@ class UserDecorator < Draper::Decorator
   end
 
   def last_sign_in_at
-    return object.last_sign_in_at.strftime('%Y/%m/%d %H:%M') if object.last_sign_in_at
-    '未設定'
+    return '未ログイン' unless object.last_sign_in_at
+    object.last_sign_in_at.strftime('%Y/%m/%d %H:%M')
   end
 
   def age
@@ -17,7 +17,7 @@ class UserDecorator < Draper::Decorator
   end
 
   def sex
-    return '未入力' unless object.birth
+    return '未入力' unless object.sex
     object.sex == 0 ? '男性' : '女性'
   end
 end

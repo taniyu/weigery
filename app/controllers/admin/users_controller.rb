@@ -1,25 +1,29 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_user!
-  before_action :load_user, except: [:index]
+  before_action :load_user, except: [:index, :new, :create]
 
   def index
     @users = User.order(updated_at: :desc).page(params[:page]).per(20)
   end
 
-  def show
-  end
-
   def edit
+    render :show_modal_form
   end
 
   def update
+    @user.update_without_current_password(user_params)
+    render :reload
   end
 
   def new
+    render :show_modal_form
   end
 
   def create
+    @user = User.new(user_params)
+    @user.save
+    render :reload
   end
 
   def destroy
@@ -38,6 +42,12 @@ class Admin::UsersController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(
+      :email, :name, :birth, :password, :role, :sex
+    )
+  end
 
   def load_user
     return unless params[:id]

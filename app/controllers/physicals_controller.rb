@@ -8,16 +8,13 @@ class PhysicalsController < ApplicationController
   end
 
   def new
-    @physical = @user.physical.new
+    @physical = @user.physicals.new
   end
 
   def create
-    @physical = @user.physical.create(physical_params)
-    if @physical.save
-      redirect_to root_path
-    else
-      render 'new'
-    end
+    # TODO: bmi
+    @physical = @user.physicals.create(physical_params)
+    @physical.save!
   end
 
   def show

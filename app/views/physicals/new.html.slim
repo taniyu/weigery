@@ -1,12 +1,16 @@
-.uk-grid
+huk-grid
   fieldest
     form.uk-form
-      = form_fot [@user, @user.articles.build] do |f|
+      = form_for [@user, @user.physicals.create], html: { class: 'uk-form-row' } do |f|
         legend
           | 本日の身体情報を入力
-          = f.text_field :height, class: 'uk-form-row', placeholder: '身長'
-          = f.text_field :weight, class: 'uk-form-row', placeholder: '体重'
-          = f.text_field :sbp   , class: 'uk-form-row', placeholder: '血圧(高)'
-          = f.text_field :dbp   , class: 'uk-form-row', placeholder: '血圧(低)'
-          = f.text_field :pulse , class: 'uk-form-row', placeholder: '脈拍'
+          = f.text_field :height, placeholder: '身長'
+          = f.text_field :weight, placeholder: '体重'
+          = f.text_field :sbp   , placeholder: '血圧(高)'
+          = f.text_field :dbp   , placeholder: '血圧(低)'
+          = f.text_field :pulse , placeholder: '脈拍'
+          = f.text_field :measurement_date , class: 'date-uk-datepicker'
+      button.uk-button.uk-button-primary
+        = fa_icon 'floppy-o', text: submit
+
 

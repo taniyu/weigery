@@ -28,6 +28,7 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :lockable
+  has_many :physicals
 
   module Role
     GENERAL = 0

@@ -25,16 +25,13 @@
 #  role                   :integer          default(0), not null
 #
 
-class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :lockable
-
-  module Role
-    GENERAL = 0
-    ADMIN = 100
-  end
-
-  def admin?
-    Role::ADMIN <= role
+FactoryGirl.define do
+  factory :user do
+    email 'test@hoge.com'
+    password 'password'
+    name 'test name'
+    account 'test'
+    sex 0
+    role 0
   end
 end

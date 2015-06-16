@@ -1,0 +1,13 @@
+ul.uk-tab data-uk-tab="{connect:'#tab-content'}"
+  li.uk-active
+    a href="" 管理
+  li
+    a href="" グラフ
+
+ul#tab-content.uk-switcher
+  li.uk-active
+    = render partial: 'management'
+  li aria-hidden="true"
+    = render partial: 'graph'
+
+

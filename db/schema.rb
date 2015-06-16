@@ -13,19 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150616074248) do
 
-  create_table "physicals", force: :cascade do |t|
-    t.integer  "user_id",          default: 0,   null: false
-    t.float    "height",           default: 0.0, null: false
-    t.float    "weight",           default: 0.0, null: false
-    t.integer  "sdp",              default: 0,   null: false
-    t.integer  "dbp",              default: 0,   null: false
-    t.integer  "pulse",            default: 0,   null: false
-    t.float    "bmi",              default: 0.0, null: false
-    t.date     "measurement_date",               null: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-  end
-
   create_table "group_users", force: :cascade do |t|
     t.integer  "group_id"
     t.integer  "user_id"
@@ -37,6 +24,19 @@ ActiveRecord::Schema.define(version: 20150616074248) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "physicals", force: :cascade do |t|
+    t.integer  "user_id",          default: 0,   null: false
+    t.float    "height",           default: 0.0, null: false
+    t.float    "weight",           default: 0.0, null: false
+    t.integer  "sdp",              default: 0,   null: false
+    t.integer  "dbp",              default: 0,   null: false
+    t.integer  "pulse",            default: 0,   null: false
+    t.float    "bmi",              default: 0.0, null: false
+    t.date     "measurement_date",               null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "users", force: :cascade do |t|

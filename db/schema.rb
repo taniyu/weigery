@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616062355) do
+ActiveRecord::Schema.define(version: 20150616074248) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  create_table "physicals", force: :cascade do |t|
+    t.integer  "user_id",          default: 0,   null: false
+    t.float    "height",           default: 0.0, null: false
+    t.float    "weight",           default: 0.0, null: false
+    t.integer  "sdp",              default: 0,   null: false
+    t.integer  "dbp",              default: 0,   null: false
+    t.integer  "pulse",            default: 0,   null: false
+    t.float    "bmi",              default: 0.0, null: false
+    t.date     "measurement_date",               null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

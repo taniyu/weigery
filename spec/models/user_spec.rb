@@ -40,4 +40,20 @@ RSpec.describe User, type: :model do
       expect(user.admin?).to eq false
     end
   end
+
+  context 'UserはGropUserを通してGroupを複数持っている' do
+    it 'has_many :group, through: :group_users' do
+      is_expected.to have_many(:groups).through(:group_users)
+    end
+  end
+  context 'UserはGroupUserを複数持っている' do
+    it 'has_many :group?' do
+      is_expected.to have_many(:group_users)
+    end
+  end
+  context 'UserはPhysicalを複数持っている' do
+    it 'has_many :physicals?' do
+      is_expected.to have_many(:physicals)
+    end
+  end
 end

@@ -8,13 +8,15 @@ class PhysicalsController < ApplicationController
   end
 
   def new
-    @physical = @user.physicals.new
+    @physical = Physical.new
   end
 
   def create
     # TODO: bmi
-    @physical = @user.physicals.create(physical_params)
+    @physical = Physicals.new(physical_params)
+    @physical.user_id = current_user.id
     @physical.save!
+    render :reload
   end
 
   def show

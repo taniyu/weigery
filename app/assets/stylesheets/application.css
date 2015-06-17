@@ -14,5 +14,6 @@
  *= require font-awesome
  *= require uikit
  *= require uikit/almost-flat
+ *= require select2
  *= require_self
  */

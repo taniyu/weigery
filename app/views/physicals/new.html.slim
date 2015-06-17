@@ -1,7 +1,7 @@
 .uk-grid
   fieldest
     form.uk-form
-      = form_for [@user, @user.physical.new], html: { class: 'uk-form-row' } do |f|
+      = form_for [@user, @user.physicals.new], html: { class: 'uk-form-row' } do |f|
         legend
           | 本日の身体情報を入力
           = f.text_field :height, placeholder: '身長'
@@ -10,7 +10,6 @@
           = f.text_field :dbp   , placeholder: '血圧(低)'
           = f.text_field :pulse , placeholder: '脈拍'
           = f.text_field :measurement_date , class: 'date-uk-datepicker'
-      button.uk-button.uk-button-primary
-        = fa_icon 'floppy-o', text: submit
+          = f.submit
 
 

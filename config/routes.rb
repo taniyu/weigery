@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [] do
-    resources :physicals, only: [:show, :new, :update, :destroy, :edit]
+    resources :physicals, only: [:create, :show, :new, :update, :destroy, :edit]
   end
 
   namespace :admin do

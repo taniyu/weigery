@@ -41,7 +41,7 @@ class PhysicalsController < ApplicationController
   private
 
   def physical_params
-    params[:physical].permit(:height, :weight, :sdp, :dbp, :pulse, :bmi, :measurement_date)
+    params[:physical].permit(:height, :weight, :sbp, :dbp, :pulse, :bmi, :measurement_date)
   end
 
   def set_user

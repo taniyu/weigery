@@ -6,4 +6,12 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     resources :physicals, only: [:show, :new, :update, :destroy, :edit]
   end
+
+  namespace :admin do
+    resources :users do
+      post :lock, on: :member
+      post :unlock, on: :member
+    end
+  end
+
 end

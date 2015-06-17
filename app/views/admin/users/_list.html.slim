@@ -37,3 +37,5 @@
             = link_to admin_user_path(user.id)
               = fa_icon 'files-o', text: "#{user.physicals.count} データ"
           td #{user.last_sign_in_at}
+coffee:
+  $('.select2').select2()

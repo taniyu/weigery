@@ -5,6 +5,5 @@ class Physical < ActiveRecord::Base
 
   def calc_bmi
     self.bmi = weight ** 2 / height if height != 0
-    self
   end
 end

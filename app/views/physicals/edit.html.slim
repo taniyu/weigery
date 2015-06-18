@@ -2,7 +2,7 @@
   fieldest
     form.uk-form.uk-form-stacked
       .uk-form-row
-        = form_for @user.physicals.new, html: { class: 'uk-form-row' }, url: { controller: 'physicals', action: 'update' } do |f|
+        = form_for @user.physicals.new, html: { class: 'uk-form-row' }, url: { controller: 'physicals', action: 'edit' } do |f|
           legend
             | 身体情報
           label.uk-form-label for="measurement_date"

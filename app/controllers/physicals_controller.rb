@@ -12,10 +12,12 @@ class PhysicalsController < ApplicationController
   end
 
   def create
-    # TODO: bmi
     @physical = @user.physicals.new(physical_params)
-    @physical.save!
-    render :reload
+    if @physical.save
+      redirect_to 'physicals/index'
+    else
+      render 'new'
+    end
   end
 
   def edit

@@ -4,7 +4,7 @@ class Physical < ActiveRecord::Base
   before_update :calc_bmi
 
   def calc_bmi
-    self.bmi = self.weight ** 2 / self.height if self.height != 0
+    self.bmi = weight ** 2 / height if height != 0
     self
   end
 end

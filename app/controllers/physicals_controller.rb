@@ -15,7 +15,7 @@ class PhysicalsController < ApplicationController
   def create
     @physical = @user.physicals.new(physical_params)
     if @physical.save
-      redirect_to physicals_index_path
+      render 'index'
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class PhysicalsController < ApplicationController
 
   def update
     if @physical.update(physical_params)
-      redirect_to physicals_index_path
+      render 'index'
     else
       render 'update'
     end
@@ -34,7 +34,7 @@ class PhysicalsController < ApplicationController
 
   def destroy
     @physical.destroy
-    redirect_to 'physicals/index'
+    render 'index'
   end
 
   private

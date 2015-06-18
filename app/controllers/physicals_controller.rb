@@ -18,10 +18,6 @@ class PhysicalsController < ApplicationController
     render :reload
   end
 
-  def show
-    @physicals = Physical.all
-  end
-
   def edit
   end
 
@@ -35,7 +31,7 @@ class PhysicalsController < ApplicationController
 
   def destroy
     @physical.destroy
-    redirect_to root_path
+    render :reload
   end
 
   private
@@ -49,7 +45,7 @@ class PhysicalsController < ApplicationController
   end
 
   def set_physical
-    @physical = Physical.find(params[:physical_id])
+    @physical = Physical.find(params[:id])
   end
 end
 

@@ -1,18 +1,18 @@
-- Physical.all.each do |physical|
-  table.uk-table
-    thead
-      tr
-        th id
-        th 測定日
-        th 身長
-        th 体重
-        th 血圧(高)
-        th 血圧(低)
-        th 脈拍
-        th BMI
-        th 編集
+table.uk-table
+  thead
+    tr
+      th id
+      th 測定日
+      th 身長
+      th 体重
+      th 血圧(高)
+      th 血圧(低)
+      th 脈拍
+      th BMI
+      th 編集
 
-    tfoot
+  tfoot
+    - Physical.all.each do |physical|
       tr
         th = physical.id
         th = physical.measurement_date
@@ -23,9 +23,6 @@
         th = physical.pulse
         th = physical.bmi
         th
-          button.uk-button.uk-button-success type='button'
-            = fa_icon 'pencil'
-            | 編集
-          /TODO: user_id
+          = link_to "編集", edit_user_physical_path(physical.user_id, physical.id), class: 'uk-button uk-button-primary'
           = link_to "削除", user_physical_path(physical.user_id, physical.id), method: :delete, class: 'uk-button uk-button-danger'
 

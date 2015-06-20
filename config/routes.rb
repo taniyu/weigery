@@ -3,10 +3,15 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :users, only: [] do
+    resources :physicals, only: [:create, :new, :update, :destroy, :edit]
+  end
+
   namespace :admin do
     resources :users do
       post :lock, on: :member
       post :unlock, on: :member
     end
   end
+
 end

@@ -2,6 +2,7 @@ test:
   override:
     - "bundle exec bin/rubocop_parallel": { parallel: true }
     - bundle exec rspec --color --format documentation
+    - bundle exec brakeman
 machine:
   ruby:
     version: 2.2.2

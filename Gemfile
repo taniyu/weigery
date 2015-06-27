@@ -29,6 +29,7 @@ group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  gem 'rubocop'
 end
 
 gem 'uikit-sass-rails', git: 'git://github.com/8398a7/uikit-sass-rails'

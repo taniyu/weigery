@@ -1,5 +1,4 @@
 class PhysicalsController < ApplicationController
-
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_user
   before_action :set_physical, only: [:edit, :update, :destroy]
@@ -49,4 +48,3 @@ class PhysicalsController < ApplicationController
     @physical = Physical.find(params[:id])
   end
 end
-

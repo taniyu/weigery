@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616074248) do
+ActiveRecord::Schema.define(version: 20150617043356) do
 
   create_table "group_users", force: :cascade do |t|
     t.integer  "group_id"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150616074248) do
     t.integer  "user_id",          default: 0,   null: false
     t.float    "height",           default: 0.0, null: false
     t.float    "weight",           default: 0.0, null: false
-    t.integer  "sdp",              default: 0,   null: false
+    t.integer  "sbp",              default: 0,   null: false
     t.integer  "dbp",              default: 0,   null: false
     t.integer  "pulse",            default: 0,   null: false
     t.float    "bmi",              default: 0.0, null: false

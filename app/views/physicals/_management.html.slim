@@ -1,1 +1,30 @@
-p ああああああああああああああああ
+table.uk-table
+  thead
+    tr
+      th id
+      th 測定日
+      th 身長
+      th 体重
+      th 血圧(高)
+      th 血圧(低)
+      th 脈拍
+      th BMI
+      - if user_signed_in? && current_user == @user
+        th 編集
+
+  tbody
+    - @user.physicals.each do |physical|
+      tr
+        td = physical.id
+        td = physical.measurement_date
+        td = physical.height
+        td = physical.weight
+        td = physical.sbp
+        td = physical.dbp
+        td = physical.pulse
+        td = physical.bmi
+        - if user_signed_in? && current_user == @user
+          td
+            = link_to "編集", edit_user_physical_path(physical.user_id, physical.id), class: 'uk-button uk-button-primary'
+            = link_to "削除", user_physical_path(physical.user_id, physical.id), method: :delete, class: 'uk-button uk-button-danger'
+

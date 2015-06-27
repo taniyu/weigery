@@ -1,0 +1,28 @@
+.uk-grid
+  = form_for @user.physicals.new, html: { class: 'uk-form' }, url: { controller: 'physicals', action: 'create' } do |f|
+   fieldest
+    legend
+      | 身体情報
+    label.uk-form-label for="measurement_date"
+      | 測定日
+    .uk-form-controls
+      - today = Date.today
+      = f.text_field :measurement_date, value: "#{today}", 'data-uk-datepicker' => "{format:'YYYY-MM-DD'}"
+    label.uk-form-label for="height" 身長
+    .uk-form-controls
+      = f.text_field :height
+    label.uk-form-label for="weight" 体重
+    .uk-form-controls
+      = f.text_field :weight
+    label.uk-form-label for="sbp" 血圧(高)
+    .uk-form-controls
+      = f.text_field :sbp   , placeholder: '血圧(高)'
+    label.uk-form-label for="dbp" 血圧(低)
+    .uk-form-controls
+      = f.text_field :dbp   , placeholder: '血圧(低)'
+    label.uk-form-label for="pulse" 脈拍
+    .uk-form-controls
+      = f.text_field :pulse , placeholder: '脈拍'
+    button.uk-button.uk-button-primary
+      = fa_icon 'floppy-o', text: '送信'
+

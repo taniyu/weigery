@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  get 'physicals/index'
 
   devise_for :users
+
+  root to: 'dashboards#index'
+
+  resources :users, only: [] do
+    resources :physicals, only: [:create, :new, :destroy, :edit, :update, :index]
+  end
 
   namespace :admin do
     resources :users do
@@ -9,4 +14,5 @@ Rails.application.routes.draw do
       post :unlock, on: :member
     end
   end
+
 end

@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get 'physicals/index'
 
   devise_for :users
 
   resources :users, only: [] do
-    resources :physicals, only: [:create, :new, :destroy, :edit, :update]
+    resources :physicals, only: [:create, :new, :destroy, :edit, :update, :index]
   end
 
   namespace :admin do

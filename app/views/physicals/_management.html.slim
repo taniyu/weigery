@@ -12,7 +12,7 @@ table.uk-table
       th 編集
 
   tbody
-    - @physicals.each do |physical|
+    - @user.physicals.each do |physical|
       tr
         td = physical.id
         td = physical.measurement_date

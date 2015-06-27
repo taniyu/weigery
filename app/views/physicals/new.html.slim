@@ -1,5 +1,5 @@
 .uk-grid
-  = form_for @user.physicals.new, html: { class: 'uk-form-row' }, url: { controller: 'physicals', action: 'create' } do |f|
+  = form_for @user.physicals.new, html: { class: 'uk-form' }, url: { controller: 'physicals', action: 'create' } do |f|
    fieldest
     legend
       | 身体情報
@@ -7,7 +7,7 @@
       | 測定日
     .uk-form-controls
       - today = Date.today
-      = f.text_field :measurement_date, placeholder: "#{today}", value: "#{today}"
+      = f.text_field :measurement_date, value: "#{today}", 'data-uk-datepicker' => "{format:'YYYY-MM-DD'}"
     label.uk-form-label for="height" 身長
     .uk-form-controls
       = f.text_field :height

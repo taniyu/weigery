@@ -9,10 +9,11 @@ table.uk-table
       th 血圧(低)
       th 脈拍
       th BMI
-      th 編集
+      - if user_signed_in? && current_user == @user
+        th 編集
 
   tbody
-    - @physicals.each do |physical|
+    - @user.physicals.each do |physical|
       tr
         td = physical.id
         td = physical.measurement_date
@@ -22,7 +23,8 @@ table.uk-table
         td = physical.dbp
         td = physical.pulse
         td = physical.bmi
-        td
-          = link_to "編集", edit_user_physical_path(physical.user_id, physical.id), class: 'uk-button uk-button-primary'
-          = link_to "削除", user_physical_path(physical.user_id, physical.id), method: :delete, class: 'uk-button uk-button-danger'
+        - if user_signed_in? && current_user == @user
+          td
+            = link_to "編集", edit_user_physical_path(physical.user_id, physical.id), class: 'uk-button uk-button-primary'
+            = link_to "削除", user_physical_path(physical.user_id, physical.id), method: :delete, class: 'uk-button uk-button-danger'
 

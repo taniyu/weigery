@@ -1,7 +1,7 @@
 class PhysicalsController < ApplicationController
 
   # before_action :authenticate_user!, only: [:new, :edit]
-  before_action :set_user, only: [:new, :create, :edit]
+  before_action :set_user, only: [:new, :create, :edit, :update]
   before_action :set_physical, only: [:edit, :update, :destroy]
 
   def index
@@ -28,7 +28,7 @@ class PhysicalsController < ApplicationController
     if @physical.update(physical_params)
       redirect_to physicals_index_path
     else
-      render 'update'
+      render 'edit'
     end
   end
 

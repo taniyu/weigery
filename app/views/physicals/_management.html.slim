@@ -17,6 +17,7 @@ table.uk-table
 
   tbody
     - @user.physicals.each do |physical|
+      - physical = physical.decorate
       tr
         td = physical.id
         td = physical.measurement_date

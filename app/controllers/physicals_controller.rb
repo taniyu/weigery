@@ -1,7 +1,7 @@
 class PhysicalsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_user, only: [:index, :create]
-  before_action :set_physical, only: [:update, :destroy]
+  before_action :set_physical, only: [:edit, :update, :destroy]
 
   def index
   end

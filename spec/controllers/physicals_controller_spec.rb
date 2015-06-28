@@ -12,12 +12,12 @@ RSpec.describe PhysicalsController, type: :controller do
     end
     it 'ユーザがログインした状態で身体情報作成ページ閲覧' do
       sign_in @user
-      get :new, user_id: @user
+      xhr :get, :new, user_id: @user
       expect(response).to have_http_status(:success)
     end
     it 'ユーザがログインした状態で身体情報編集ページ閲覧' do
       sign_in @user
-      get :edit, user_id: @user, id: @physical
+      xhr :get, :edit, user_id: @user, id: @physical
       expect(response).to have_http_status(:success)
     end
   end

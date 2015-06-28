@@ -1,5 +1,6 @@
 - unless physical
   - physical = current_user.physicals.new
+  - physical.measurement_date = Date.today
   - title = '新規登録'
   - submit = '作成'
   - path = user_physicals_path(current_user.id)

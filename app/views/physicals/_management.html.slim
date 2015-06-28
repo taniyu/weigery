@@ -1,3 +1,6 @@
+br
+= link_to new_user_physical_path, remote: :true, class: 'uk-button uk-button-success'
+  = fa_icon 'plus', text: '新規作成'
 table.uk-table
   thead
     tr
@@ -25,6 +28,6 @@ table.uk-table
         td = physical.bmi
         - if user_signed_in? && current_user == @user
           td
-            = link_to "編集", edit_user_physical_path(physical.user_id, physical.id), class: 'uk-button uk-button-primary'
-            = link_to "削除", user_physical_path(physical.user_id, physical.id), method: :delete, class: 'uk-button uk-button-danger'
+            = link_to '編集', edit_user_physical_path(user_id: physical.user_id, id: physical.id), remote: true, class: 'uk-button uk-button-primary'
+            = link_to '削除', user_physical_path(physical.user_id, physical.id), remote: true, method: :delete, class: 'uk-button uk-button-danger'
 

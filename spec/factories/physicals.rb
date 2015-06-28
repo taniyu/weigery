@@ -15,18 +15,13 @@
 #  updated_at       :datetime         not null
 #
 
-require 'rails_helper'
-
-RSpec.describe Physical, type: :model do
-  context 'PhiscalはUserに所属している' do
-    it 'belongs_to: users' do
-      is_expected.to belong_to(:user)
-    end
-  end
-  context '#calc_bmi' do
-    let(:physical) { FactoryGirl.create(:physical) }
-    it '正しい計算結果を返す' do
-      expect(physical.bmi).to eq 20.761245674740486
-    end
+FactoryGirl.define do
+  factory :physical do
+    height 170
+    weight 60
+    sbp 100
+    dbp 60
+    pulse 10
+    measurement_date Date.today
   end
 end

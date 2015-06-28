@@ -5,8 +5,8 @@ class PhysicalsController < ApplicationController
   before_action :set_physical, only: [:edit, :update, :destroy]
 
   def index
-    @height_weight = Physical.hw_graph(@user.id)
-    @bp_pulse = Physical.bpp_graph(@user.id)
+    @height_weight = @user.physicals.hw_graph
+    @bp_pulse = @user.physicals.bpp_graph
   end
 
   def new

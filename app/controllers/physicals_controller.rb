@@ -1,9 +1,12 @@
+# -*- coding: utf-8 -*-
 class PhysicalsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_user
   before_action :set_physical, only: [:edit, :update, :destroy]
 
   def index
+    @height_weight = Physical.hw_graph(@user.id)
+    @bp_pulse = Physical.bpp_graph(@user.id)
   end
 
   def new

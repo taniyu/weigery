@@ -26,7 +26,9 @@ html
               a = fa_icon 'database', text: 'マイページ'
               .uk-dropdown.uk-dropdown-navbar
                 ul.uk-nav.uk-nav-navbar
-                  li = link_to 'Link2', '/link2'
+                  li
+                    = link_to user_physicals_path(current_user.id)
+                      = fa_icon 'heartbeat', text: '健康状態'
 
           - if user_signed_in? && current_user.admin?
             li

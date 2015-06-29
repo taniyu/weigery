@@ -1,0 +1,12 @@
+- @title = 'TOP'
+.uk-block.uk-block-secondary.uk-contrast.uk-block-large
+  .uk-container
+    h1 みんなの健康を監視して平和な世界をつくろう
+    .uk-grid.uk-grid-match data-uk-grid-margin=""
+      .uk-width-medium-1-3 健康状態を登録して自身の健康をチェック
+      .uk-width-medium-1-3 友人の健康状態を監視して友人の健康をチェック
+      .uk-width-medium-1-3 グループを作ってみんなで監視しよう
+      - unless user_signed_in?
+        br
+        .uk-width-medium-1-3
+        .uk-width-medium-1-3 align="center" = link_to '登録', new_user_registration_path, class: 'uk-button-primary uk-button-large'

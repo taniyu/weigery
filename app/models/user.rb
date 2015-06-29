@@ -26,14 +26,15 @@
 #
 
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :lockable
+  attr_accessor :login
 
   has_many :physicals
   has_many :group_users
   has_many :groups, through: :group_users
+
+  before_save :update_account!
 
   module Role
     GENERAL = 0
@@ -44,6 +45,10 @@ class User < ActiveRecord::Base
     Role::ADMIN <= role
   end
 
+  def update_account!
+    self.account = email.split('@').first
+  end
+
   def update_without_current_password(params, *options)
     params.delete(:current_password)
     params.delete(:password) if params[:password].blank?
@@ -51,5 +56,15 @@ class User < ActiveRecord::Base
 
     clean_up_passwords
     update_attributes(params, *options)
+  end
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    login = conditions.delete(:login)
+    if login
+      find_by(['account = :value OR email = :value', { value: login }])
+    else
+      find_by(conditions)
+    end
   end
 end

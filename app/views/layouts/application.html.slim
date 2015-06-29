@@ -19,18 +19,14 @@ html
 
         ul.uk-navbar-nav.uk-hidden-small
           - if user_signed_in?
-            li.uk-parent data-uk-dropdown=""
-              a = fa_icon 'database', text: 'マイページ'
-              .uk-dropdown.uk-dropdown-navbar
-                ul.uk-nav.uk-nav-navbar
-                  li
-                    = link_to user_physicals_path(current_user.id)
-                      = fa_icon 'heartbeat', text: '健康状態'
-
-          - if user_signed_in? && current_user.admin?
             li
-              = link_to admin_users_path
-                = fa_icon 'gears', text: '管理'
+              = link_to user_physicals_path(current_user.id)
+                = fa_icon 'user-md', text: '自分の健康状態'
+
+            - if current_user.admin?
+              li
+                = link_to admin_users_path
+                  = fa_icon 'gears', text: '管理'
 
         .uk-navbar-flip.uk-hidden-small
           ul.uk-navbar-nav

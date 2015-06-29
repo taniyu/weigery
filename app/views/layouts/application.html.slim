@@ -20,7 +20,7 @@ html
         ul.uk-navbar-nav.uk-hidden-small
           - if user_signed_in?
             li
-              = link_to user_physicals_path(current_user.id)
+              = link_to user_physicals_path(current_user.id), data: { 'no-turbolink' => true }
                 = fa_icon 'user-md', text: '自分の健康状態'
 
             - if current_user.admin?

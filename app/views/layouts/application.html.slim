@@ -14,13 +14,10 @@ html
 
     nav.uk-navbar.uk-navbar-attached
       .uk-container.uk-container-center
-        = link_to '/', class: 'uk-navbar-brand'
+        = link_to root_path, class: 'uk-navbar-brand'
           span.brand.bold weigery
 
         ul.uk-navbar-nav.uk-hidden-small
-          li
-            = link_to '/link1'
-              = fa_icon 'unlink', text: 'Link1'
           - if user_signed_in?
             li.uk-parent data-uk-dropdown=""
               a = fa_icon 'database', text: 'マイページ'
@@ -62,10 +59,11 @@ html
       .uk-offcanvas-bar.uk-offcanvas-bar-flip
         ul.uk-nav.uk-nav-offcanvas.uk-nav-parent-icon data-uk-nav=""
           li.uk-nav-header = fa_icon 'unlink', text: 'Link'
-          li = link_to 'Link1', '/link1'
           - if user_signed_in?
             li.uk-nav-header = fa_icon 'database', text: 'マイページ'
-            li = link_to 'Link2', '/link2'
+            li
+              = link_to user_physicals_path(current_user.id)
+                = fa_icon 'heartbeat', text: '健康状態'
           - if user_signed_in? && current_user.admin?
             li.uk-nav-header = fa_icon 'gears', text: '管理'
             li = link_to '管理ページ', admin_users_path

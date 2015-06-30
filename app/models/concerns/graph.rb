@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 module Graph
   extend ActiveSupport::Concern
 
@@ -8,9 +9,10 @@ module Graph
         f.title(text: '身長 & 体重')
         f.xAxis(categories: physicals.pluck(:measurement_date))
         f.series(name: '身長(cm)', yAxis: 0, data: physicals.pluck(:height))
-        f.series(name: '体重(kg)', yAxis: 0, data: physicals.pluck(:weight))
+        f.series(name: '体重(kg)', yAxis: 1, data: physicals.pluck(:weight))
         f.yAxis [
-          { title: { text: '身長(cm) 体重(kg)' } }
+          { title: { text: '身長(cm)' } },
+          { title: { text: '体重(kg)' }, opposite: true }
         ]
         f.legend(align: 'right', verticalAlign: 'top', y: 75, x: -50, layout: 'vertical')
       end

@@ -36,6 +36,9 @@ class User < ActiveRecord::Base
 
   before_save :update_account!
 
+  delegate :hw_graph, to: :physicals
+  delegate :bpp_graph, to: :physicals
+
   module Role
     GENERAL = 0
     ADMIN = 100

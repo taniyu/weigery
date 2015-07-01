@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    allows = [:name, :sex, :birth]
+    allows = [:email, :name, :sex, :birth]
     devise_parameter_sanitizer.for(:sign_up) << allows
     devise_parameter_sanitizer.for(:account_update) << allows
   end

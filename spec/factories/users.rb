@@ -27,7 +27,7 @@
 
 FactoryGirl.define do
   factory :user do
-    email 'test@hoge.com'
+    email 'test@stu.kagawa-u.ac.jp'
     password 'password'
     name 'test name'
     birth Date.today
@@ -37,7 +37,7 @@ FactoryGirl.define do
   end
 
   factory :admin, class: User do
-    email 'test@poge.com'
+    email 'test@eng.kagawa-u.ac.jp'
     password 'password'
     name 'test admin'
     birth '1987-01-21'.to_date

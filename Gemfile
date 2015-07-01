@@ -31,6 +31,8 @@ group :test do
   gem 'shoulda-matchers'
   gem 'rubocop'
   gem 'brakeman'
+  gem 'capybara'
+  gem 'capybara-webkit'
 end
 
 gem 'uikit-sass-rails', git: 'git://github.com/8398a7/uikit-sass-rails'

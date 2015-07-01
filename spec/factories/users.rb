@@ -30,8 +30,19 @@ FactoryGirl.define do
     email 'test@hoge.com'
     password 'password'
     name 'test name'
+    birth Date.today
     account 'test'
     sex 0
     role 0
+  end
+
+  factory :admin, class: User do
+    email 'test@poge.com'
+    password 'password'
+    name 'test admin'
+    birth '1987-01-21'.to_date
+    account 'admin'
+    sex 1
+    role 100
   end
 end

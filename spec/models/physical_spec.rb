@@ -33,7 +33,7 @@ RSpec.describe Physical, type: :model do
   describe '.hw_graph' do
     before do
       FactoryGirl.create(:user, id: 1)
-      FactoryGirl.create(:user, id: 2, email: 'test2@gmail.com')
+      FactoryGirl.create(:user, id: 2, email: 'test2@stu.kagawa-u.ac.jp')
     end
     context '1人のユーザのみがデータを持っている場合' do
       let(:user) { User.find_by(id: 1) }
@@ -62,7 +62,7 @@ RSpec.describe Physical, type: :model do
   describe '.bpp_graph' do
     before do
       FactoryGirl.create(:user, id: 1)
-      FactoryGirl.create(:user, id: 2, email: 'test2@gmail.com')
+      FactoryGirl.create(:user, id: 2, email: 'test2@stu.kagawa-u.ac.jp')
     end
     context '1人のユーザのみがデータを持っている場合' do
       let(:user) { User.find_by(id: 1) }

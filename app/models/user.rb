@@ -39,6 +39,11 @@ class User < ActiveRecord::Base
   delegate :hw_graph, to: :physicals
   delegate :bpp_graph, to: :physicals
 
+  validates :email, format: {
+    with:    /\A.+@.+\.kagawa-u\.ac\.jp\z/,
+    message: 'は大学のもの(kagawa-u.ac.jp)を利用してください。'
+  }
+
   module Role
     GENERAL = 0
     ADMIN = 100
